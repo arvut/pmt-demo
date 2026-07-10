@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P&M CFO Treuhand — Ваш внешний финансовый директор и бухгалтерия в реальном времени, Цюрих</title>
+<meta name="description" content="P&M CFO Treuhand AG берёт на себя вашу бухгалтерию и роль внешнего финансового директора: баланс, прибыль и открытый НДС каждый день на вашем экране — значительно дешевле собственного отдела. CFO-бутик в Цюрихе.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+@import url('../assets/fonts/fonts.css');
+:root{
+  --paper:#F8ECE4; --paper-2:#F3E8DF; --ink:#151617; --ink-2:#2D2F32;
+  --body:#4A4D50; --muted:#8B8F93; --line:#DCD2C9; --white:#FCF4EC;
+  --green:#009b9f; --gold:#d9a441; --radius:2px;
+}
+*{-webkit-font-smoothing:antialiased;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+body{margin:0;font-family:'Inconsolata',ui-monospace,Menlo,monospace;color:var(--body);background:var(--paper);line-height:1.68;font-size:16.5px;font-weight:400;}
+h1,h2,h3,h4{font-family:'Montserrat',-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);font-weight:800;line-height:1.14;margin:0;letter-spacing:-.02em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+.eyebrow{font-family:'Inconsolata',monospace;text-transform:uppercase;letter-spacing:.22em;font-weight:700;font-size:.72rem;color:var(--ink-2);}
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--ink);vertical-align:.22em;margin-right:12px;}
+/* Sektionsüberschrift — links, gross, ohne Dekor (Qontrarian-Stil) */
+.sec-head{text-align:left;max-width:none;margin:0 0 44px;}
+.h-sec{font-size:clamp(2rem,4.2vw,3rem);letter-spacing:-.03em;}
+.lead{font-size:1.06rem;color:var(--body);}
+.inv{background:var(--ink);color:var(--paper);padding:.04em .28em;}
+.btn{display:inline-block;font-family:'Inconsolata',monospace;font-weight:600;font-size:.92rem;letter-spacing:.02em;
+  background:var(--ink);color:var(--paper);padding:14px 28px;border:1.5px solid var(--ink);border-radius:var(--radius);cursor:pointer;transition:.2s;}
+.btn:hover{background:transparent;color:var(--ink);}
+.btn-out{background:transparent;color:var(--ink);}
+.btn-out:hover{background:var(--ink);color:var(--paper);}
+.btn-light{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.btn-light:hover{background:transparent;color:var(--paper);border-color:var(--paper);}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(248,236,228,.5);}
+.btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.nav-a{font-family:'Inconsolata',monospace;font-weight:500;font-size:.95rem;letter-spacing:.01em;color:var(--ink);transition:color .2s;border-bottom:2px solid transparent;}
+.nav-a:hover{color:var(--ink);border-bottom-color:var(--ink);}
+.link-u{color:var(--ink);font-weight:700;border-bottom:2px solid var(--ink);}
+.card{position:relative;background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 30px;box-shadow:5px 5px 0 var(--ink);transition:transform .25s,box-shadow .25s;}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+.card-x{position:absolute;top:16px;right:16px;width:30px;height:30px;border:1.5px solid var(--ink);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--ink);background:var(--paper);}
+.card-x svg{width:15px;height:15px;}
+.ico{width:52px;height:52px;border:1.5px solid var(--ink);border-radius:var(--radius);background:var(--paper);color:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.ico svg{width:26px;height:26px;}
+.card h3{font-size:1.14rem;margin-bottom:10px;}
+.card p{font-size:.95rem;color:var(--body);}
+input,textarea{font-family:'Inconsolata',monospace;width:100%;border:1.5px solid var(--ink);border-radius:var(--radius);padding:13px 15px;background:var(--white);color:var(--ink);font-size:.96rem;transition:box-shadow .2s;}
+input:focus,textarea:focus{outline:none;box-shadow:3px 3px 0 var(--ink);}
+label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:opacity,transform;}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}.reveal{opacity:1;transform:none;}}
+#toTop{position:fixed;right:22px;bottom:22px;z-index:60;width:46px;height:46px;background:var(--ink);color:var(--paper);border:none;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(12px);transition:.3s;}
+#toTop.show{opacity:1;visibility:visible;transform:none;}
+@media(max-width:900px){.hide-mob{display:none!important;}}
+@media(max-width:560px){.logo-wave{display:none;}}
+@media(max-width:820px){.g2{grid-template-columns:1fr!important;gap:36px!important;}}
+.lang-switch{display:flex;align-items:center;gap:10px;margin-left:6px;}.lang-switch a.lang{font-family:'Inconsolata',monospace;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}.lang-switch a.lang:hover{color:var(--ink);}.lang-switch a.lang.on{color:var(--ink);border-bottom:2px solid var(--ink);}
+</style>
+</head>
+<body>
+
+<!-- ===== KOPFZEILE (Logo links, Menü rechts) — Qontrarian-Monochrom ===== -->
+<header id="top" style="position:sticky;top:0;z-index:50;background:rgba(248,236,228,.95);backdrop-filter:saturate(160%) blur(10px);border-bottom:1.5px solid var(--ink);">
+  <div class="wrap" style="height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <a href="#top" aria-label="P&M CFO Treuhand AG" style="display:flex;align-items:center;gap:15px;">
+      <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);letter-spacing:-.02em;line-height:1;">P&amp;M&nbsp;CFO</span>
+      <img src="../assets/img/wave.png?v=1" class="logo-wave" alt="" aria-hidden="true" style="height:26px;width:auto;flex-shrink:0;">
+    </a>
+    <nav class="hide-mob" style="display:flex;align-items:center;gap:26px;">
+      <a href="#leistungen" class="nav-a">Услуги</a>
+      <a href="#preise" class="nav-a">Пакеты</a>
+      <a href="#ablauf" class="nav-a">Как это работает</a>
+      <a href="#team" class="nav-a">Команда</a>
+      <a href="#region" class="nav-a">Регион</a>
+    </nav>
+    <span class="lang-switch"><a href="../de/" class="lang">DE</a><a href="../fr/" class="lang">FR</a><a href="../it/" class="lang">IT</a><a href="../en/" class="lang">EN</a></span>
+    <a href="#kontakt" class="btn btn-out" style="padding:11px 22px;font-size:.82rem;">Запросить предложение</a>
+  </div>
+</header>
+
+<!-- ===== HERO (dunkles Vollbild mit Netzwerk-Bild — Qontrarian-Stil) ===== -->
+<section style="position:relative;background:#0b0b0d;color:var(--paper);overflow:hidden;">
+  <img src="../assets/img/hero-bg.png?v=1" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;">
+  <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.62) 55%,rgba(11,11,13,.35) 100%);"></div>
+  <div class="wrap" style="position:relative;padding:118px 24px 112px;">
+    <div class="reveal" style="max-width:860px;">
+      <p class="eyebrow" style="margin-bottom:24px;color:rgba(248,236,228,.85);">P&M CFO Treuhand · Цюрих</p>
+      <h1 style="font-size:clamp(2.3rem,5.2vw,3.7rem);line-height:1.07;margin-bottom:26px;color:#fff;">Финансы вашей компании — в реальном времени</h1>
+      <p style="font-size:1.14rem;color:rgba(248,236,228,.9);max-width:680px;margin-bottom:36px;">P&M CFO Treuhand берёт на себя вашу бухгалтерию и роль внешнего финансового директора. Баланс, прибыль и открытый НДС — каждый день на вашем экране, а не раз в год в годовой отчётности.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="#kontakt" class="btn btn-light">Запросить предложение</a>
+        <a href="#preise" class="btn btn-ghost">Посмотреть пакеты</a>
+      </div>
+      <p style="margin:38px 0 0;font-size:.86rem;color:rgba(248,236,228,.62);border-top:1.5px solid rgba(248,236,228,.2);padding-top:20px;max-width:680px;">CFO — в нашем имени и в нашей работе: бухгалтерия, отчётность и финансовое управление из одних рук, для компаний кантона Цюрих.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WAS SICH ÄNDERT (Heute vs. Mit P&M) ===== -->
+<section style="padding:96px 0;background:var(--paper);">
+  <div class="wrap">
+    <div class="reveal sec-head">
+      <h2 class="h-sec">Ваши цифры лишь раз в год?<br>Это в прошлом.</h2>
+    </div>
+    <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch;">
+      <div class="reveal" style="background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:40px 36px;">
+        <h3 style="font-size:1.2rem;margin-bottom:22px;">Сегодня — собственная бухгалтерия</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px;">
+          <li style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;">—</span>1–3 штатных бухгалтера в Цюрихе</li>
+          <li style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;">—</span><span>Полная стоимость сотрудника — от <b style="color:var(--ink);">CHF&nbsp;110'000</b> в год</span></li>
+          <li style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;">—</span>Финансовая картина раз в квартал или раз в год</li>
+          <li style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;">—</span>Кадровые риски: болезни, текучесть, отпуска</li>
+        </ul>
+      </div>
+      <div class="reveal" style="background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:40px 36px;">
+        <h3 style="font-size:1.2rem;margin-bottom:22px;color:var(--paper);">С P&M CFO Treuhand</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px;color:rgba(248,236,228,.92);">
+          <li style="display:flex;gap:12px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F8ECE4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:4px;"><path d="M5 12l4 4 10-10"/></svg>Баланс, прибыль и открытый НДС — каждый день</li>
+          <li style="display:flex;gap:12px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F8ECE4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:4px;"><path d="M5 12l4 4 10-10"/></svg>Внешний финансовый директор, сосредоточенный на решениях</li>
+          <li style="display:flex;gap:12px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F8ECE4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:4px;"><path d="M5 12l4 4 10-10"/></svg>Значительно дешевле собственного отдела</li>
+          <li style="display:flex;gap:12px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F8ECE4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:4px;"><path d="M5 12l4 4 10-10"/></svg>Масштабируемо — при любом объёме проводок, без новых сотрудников</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEITSATZ (Positionierung — Kanon, wörtlich) ===== -->
+<section style="padding:90px 0;background:var(--paper);">
+  <div class="wrap reveal" style="max-width:880px;margin:0 auto;text-align:center;">
+    <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:3rem;color:var(--ink);line-height:1;margin-bottom:10px;">„</div>
+    <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.25rem,2.4vw,1.6rem);color:var(--ink);line-height:1.46;letter-spacing:-.01em;margin:0;">
+      Традиционная фидуциария — общий бухгалтер для малого и среднего бизнеса. Фидуциария сети Arvut — ещё и <span class="inv">внешний финансовый директор</span>, и не только для малого бизнеса.
+    </p>
+  </div>
+</section>
+
+<!-- ===== LEISTUNGEN ===== -->
+<section id="leistungen" style="padding:92px 0;background:var(--paper);">
+  <div class="wrap">
+    <div class="reveal sec-head">
+      <h2 class="h-sec">Финансовая функция уровня концерна</h2>
+      <p class="lead" style="margin-top:18px;">Платёжеспособность и реальную маржу вы видите сегодня — а не только в годовом отчёте.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;">
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v5.5l3.5 2"/></svg></div>
+        <h3>Бухгалтерия в реальном времени</h3>
+        <p>Ведётся день за днём, а не раз в квартал. Баланс, отчёт о прибылях и убытках, состояние НДС, дебиторы и кредиторы — всегда актуальны.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3.5-4 3 3 5.5-6.5"/></svg></div>
+        <h3>Внешний финансовый директор (уровень CFO)</h3>
+        <p>Управленческая отчётность, ключевые показатели и основа для решений. Вы получаете выводы и решения, а не просто таблицы.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 8-9 9-5.5-1-9-4-9-9V6l9-3 9 3z"/></svg></div>
+        <h3>Отчётность по швейцарскому обязательственному праву (OR)</h3>
+        <p>Чистая, готовая к аудиту годовая отчётность — включая координацию с вашим ревизионным органом.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Зарплата и персонал</h3>
+        <p>Зарплатный учёт с центрами затрат, социальным страхованием и налогом у источника — сверено до раппена.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 9h18M8 21h8M12 17v4"/></svg></div>
+        <h3>Клиентский портал 24/7</h3>
+        <p>Ваши цифры в любой момент, на всех устройствах, в защищённой зоне под маркой P&M.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="4" width="3" height="13"/></svg></div>
+        <h3>Контроллинг и финансовое планирование</h3>
+        <p>План-факт, показатели и прогноз. Вы видите, где зарабатываете — а где нет.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DARUM LOHNT ES SICH (Kennzahlen) ===== -->
+<section style="padding:96px 0;background:var(--paper);">
+  <div class="wrap">
+    <div class="reveal sec-head">
+      <h2 class="h-sec">Сила концерна — без его штата</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;">
+      <div class="reveal" style="background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 26px;text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.9rem;color:var(--ink);letter-spacing:-.02em;">CHF 110'000+</div>
+        <div style="margin-top:8px;font-size:.9rem;color:var(--body);">полная стоимость штатного бухгалтера в Цюрихе, в год</div>
+      </div>
+      <div class="reveal" style="background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 26px;text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.9rem;color:var(--ink);letter-spacing:-.02em;">до 70%</div>
+        <div style="margin-top:8px;font-size:.9rem;color:var(--body);">экономии по сравнению с собственным отделом</div>
+      </div>
+      <div class="reveal" style="background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 26px;text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.9rem;color:var(--ink);letter-spacing:-.02em;">24/7</div>
+        <div style="margin-top:8px;font-size:.9rem;color:var(--body);">доступ к вашим цифрам в любой момент</div>
+      </div>
+      <div class="reveal" style="background:var(--ink);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 26px;text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.9rem;color:var(--paper);letter-spacing:-.02em;">каждый день</div>
+        <div style="margin-top:8px;font-size:.9rem;color:rgba(248,236,228,.85);">обновляются ваши книги — а не раз в год</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PREISE ===== -->
+<section id="preise" style="padding:96px 0;background:var(--paper);">
+  <div class="wrap">
+    <div class="reveal sec-head">
+      <h2 class="h-sec">Честная цена — по сравнению с собственным штатом</h2>
+      <p class="lead" style="margin-top:18px;">Собственная бухгалтерия — это не только зарплата. С социальными отчислениями и рабочим местом бухгалтер в Цюрихе обходится дороже <b style="color:var(--ink);">CHF 110'000</b> в год, команда — в несколько сотен тысяч. С P&M вы получаете больше — и платите значительно меньше.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:stretch;margin-top:44px;">
+      <div class="reveal card" style="display:flex;flex-direction:column;">
+        <span class="eyebrow">Real-Time Books</span>
+        <p style="font-size:.86rem;margin:8px 0 0;color:var(--muted);">10–49 сотрудников</p>
+        <div style="margin:20px 0;"><span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.7rem;color:var(--ink);">от CHF 18'000</span><span style="font-size:.85rem;color:var(--muted);"> / год</span></div>
+        <ul style="list-style:none;padding:0;margin:0;flex:1;display:flex;flex-direction:column;gap:10px;font-size:.93rem;color:var(--ink);">
+          <li>· Бухгалтерия в реальном времени + НДС</li><li>· Кредиторы / дебиторы</li><li>· Клиентский портал под маркой P&M</li><li>· Регулярная отчётность</li>
+        </ul>
+        <p style="margin:22px 0 0;padding-top:18px;border-top:1.5px solid var(--line);font-size:.86rem;color:var(--muted);">Популярно у средних компаний</p>
+      </div>
+      <div class="reveal" style="background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);border-radius:var(--radius);padding:38px 30px;display:flex;flex-direction:column;position:relative;">
+        <span style="position:absolute;top:18px;right:18px;font-family:'Inconsolata',monospace;font-weight:700;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);color:var(--ink);padding:5px 11px;border-radius:var(--radius);">Выбирают чаще всего</span>
+        <span class="eyebrow" style="color:var(--paper);">Finance Partner</span>
+        <p style="font-size:.86rem;margin:8px 0 0;color:rgba(248,236,228,.7);">50–249 сотрудников</p>
+        <div style="margin:20px 0;"><span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.7rem;color:var(--paper);">от CHF 36'000</span><span style="font-size:.85rem;color:rgba(248,236,228,.7);"> / год</span></div>
+        <ul style="list-style:none;padding:0;margin:0;flex:1;display:flex;flex-direction:column;gap:10px;font-size:.93rem;color:rgba(248,236,228,.92);">
+          <li>· Всё из Real-Time Books</li><li>· Ежемесячная управленческая отчётность</li><li>· Мультивалютность EUR/CHF</li><li>· Ежеквартальные встречи</li>
+        </ul>
+        <p style="margin:22px 0 0;padding-top:18px;border-top:1.5px solid rgba(248,236,228,.25);font-size:.86rem;color:rgba(248,236,228,.8);">Значительно дешевле собственной команды</p>
+      </div>
+      <div class="reveal card" style="display:flex;flex-direction:column;">
+        <span class="eyebrow">Virtual CFO</span>
+        <p style="font-size:.86rem;margin:8px 0 0;color:var(--muted);">Крупные компании · группы · семейный бизнес</p>
+        <div style="margin:20px 0;"><span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.7rem;color:var(--ink);">от CHF 60'000</span><span style="font-size:.85rem;color:var(--muted);"> / год</span></div>
+        <ul style="list-style:none;padding:0;margin:0;flex:1;display:flex;flex-direction:column;gap:10px;font-size:.93rem;color:var(--ink);">
+          <li>· Всё из Finance Partner</li><li>· Консолидация и бюджетирование</li><li>· Внешний финансовый директор</li><li>· Налоговое и финансовое планирование</li>
+        </ul>
+        <p style="margin:22px 0 0;padding-top:18px;border-top:1.5px solid var(--line);font-size:.86rem;color:var(--muted);">Дешевле собственного штата вместе с финансовым директором</p>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;font-size:.92rem;color:var(--muted);margin-top:30px;max-width:820px;margin-left:auto;margin-right:auto;">Точная цена определяется после короткого анализа — она зависит от объёма проводок и числа компаний. Начать можно с трёхмесячного пилота за <b style="color:var(--ink);">CHF 1'000 за мандат</b> (засчитывается при продолжении). <a href="#kontakt" class="link-u">Запросить предложение</a>.</p>
+  </div>
+</section>
+
+<!-- ===== ARBEITSWEISE ===== -->
+<section id="ablauf" style="padding:96px 0;background:var(--paper);">
+  <div class="wrap">
+    <div class="reveal sec-head">
+      <h2 class="h-sec">Три шага к финансам в реальном времени</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px;">
+      <div class="reveal" style="text-align:center;"><div style="width:56px;height:56px;background:var(--ink);color:var(--paper);border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">1</div><h3 style="font-size:1.16rem;margin-bottom:11px;">Знакомство и анализ</h3><p style="font-size:.95rem;">30-минутный разговор; мы показываем портал на примере вашей отрасли.</p></div>
+      <div class="reveal" style="text-align:center;"><div style="width:56px;height:56px;background:var(--ink);color:var(--paper);border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">2</div><h3 style="font-size:1.16rem;margin-bottom:11px;">Переход</h3><p style="font-size:.95rem;">Как правило, 2–4 недели, без остановки вашей работы.</p></div>
+      <div class="reveal" style="text-align:center;"><div style="width:56px;height:56px;background:var(--ink);color:var(--paper);border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">3</div><h3 style="font-size:1.16rem;margin-bottom:11px;">Работа в реальном времени</h3><p style="font-size:.95rem;">Ежедневные обновления, ежемесячные встречи с вашим контактным лицом в P&M.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AKZENT-BANNER (monochrom, invertiert) ===== -->
+<section style="padding:104px 0;background:var(--ink);">
+  <div class="wrap reveal" style="text-align:center;max-width:800px;">
+    <h2 style="color:var(--paper);font-size:clamp(1.75rem,3.6vw,2.5rem);margin-bottom:18px;">Сосредоточьтесь на своём бизнесе.<br>Цифры — наша забота.</h2>
+    <p style="color:rgba(248,236,228,.85);font-size:1.06rem;max-width:640px;margin:0 auto 30px;">Реальное время, контроль до раппена и роль внешнего финансового директора — от CFO-бутика в сердце Цюриха.</p>
+    <a href="#kontakt" class="btn btn-light">Запросить предложение</a>
+  </div>
+</section>
+
+<!-- ===== IHR FINANZTEAM ===== -->
+<section id="team" style="padding:92px 0;background:var(--paper);">
+  <div class="wrap">
+    <div class="reveal sec-head">
+      <h2 class="h-sec">За цифрами стоят люди, знающие ваш бизнес</h2>
+      <p class="lead" style="margin-top:18px;">Платформа выполняет рутину — команда P&M берёт на себя анализ, отчётность и решения.</p>
+    </div>
+    <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:860px;margin:0 auto;">
+      <div class="reveal card" style="display:flex;gap:22px;align-items:center;">
+        <img src="../assets/img/max-wirz.jpg?v=1" alt="Max Wirz" style="width:96px;height:96px;border-radius:var(--radius);object-fit:cover;flex-shrink:0;border:1.5px solid var(--ink);">
+        <div>
+          <h3 style="font-size:1.14rem;margin-bottom:3px;">Max Wirz</h3>
+          <p style="margin:0 0 8px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);">Партнёр</p>
+          <p style="margin:0;font-size:.92rem;">Предприниматель с многолетним опытом на позициях CXO и в советах директоров — масштаб для роли внешнего финансового директора.</p>
+        </div>
+      </div>
+      <div class="reveal card" style="display:flex;gap:22px;align-items:center;">
+        <img src="../assets/img/pavel-volichenko.jpg?v=1" alt="Pavel Volichenko" style="width:96px;height:96px;border-radius:var(--radius);object-fit:cover;flex-shrink:0;border:1.5px solid var(--ink);">
+        <div>
+          <h3 style="font-size:1.14rem;margin-bottom:3px;">Pavel Volichenko</h3>
+          <p style="margin:0 0 8px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);">Партнёр</p>
+          <p style="margin:0;font-size:.92rem;">Ваше контактное лицо по бухгалтерии и отчётности — ведёт ваши книги в реальном времени, точно и надёжно.</p>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;max-width:680px;margin:34px auto 0;font-size:.96rem;color:var(--body);"><b style="color:var(--ink);">Короткие пути, ясные ответы:</b> встречи в Цюрихе — лично или онлайн, на немецком и английском.</p>
+  </div>
+</section>
+
+<!-- ===== REGION ===== -->
+<section id="region" style="padding:96px 0;background:var(--paper);">
+  <div class="wrap g2" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+    <div class="reveal">
+      <h2 class="h-sec" style="margin-bottom:22px;">Рядом с вами — в сердце Цюриха</h2>
+      <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:13px;font-size:.98rem;">
+        <li style="display:flex;gap:12px;"><span style="color:var(--ink);font-weight:700;">·</span>Офис на Sihlquai 131, 8006 Zürich</li>
+        <li style="display:flex;gap:12px;"><span style="color:var(--ink);font-weight:700;">·</span>Обслуживание по всему кантону Цюрих</li>
+        <li style="display:flex;gap:12px;"><span style="color:var(--ink);font-weight:700;">·</span>Центральное расположение, удобно добираться общественным транспортом и на машине</li>
+        <li style="display:flex;gap:12px;"><span style="color:var(--ink);font-weight:700;">·</span>Гибкие форматы встреч — на месте или онлайн</li>
+        <li style="display:flex;gap:12px;"><span style="color:var(--ink);font-weight:700;">·</span>Немецкий и английский</li>
+      </ul>
+    </div>
+    <div class="reveal" style="background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:38px 34px;">
+      <h3 style="font-size:1.2rem;margin-bottom:14px;">Цюрих — финансовый центр Швейцарии</h3>
+      <p style="font-size:.98rem;color:var(--body);margin:0;">Здесь самый дорогой рынок труда — и именно здесь бухгалтерия в реальном времени ценнее всего: она заменяет дорогой внутренний персонал и даёт финансовую картину ежедневно. Мы знаем местные налоги и сроки.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section id="kontakt" style="padding:92px 0;background:var(--paper);">
+  <div class="wrap g2" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+    <div class="reveal">
+      <h2 class="h-sec" style="margin-bottom:18px;">Начнём с короткого разговора</h2>
+      <p class="lead" style="max-width:460px;margin-bottom:30px;">Расскажите о своей компании — за 30 минут мы покажем, как выглядит ваша бухгалтерия в реальном времени и сколько вы экономите. Первый разговор бесплатный.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;font-size:.98rem;">
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:800;color:var(--ink);margin-bottom:5px;">P&M CFO Treuhand AG</div>
+          <p style="color:var(--ink);margin:0;">Sihlquai 131 · 8006 Zürich</p>
+        </div>
+        <div style="color:var(--ink);">
+          <p style="margin:0;">+41 76 281 24 28</p>
+        </div>
+        <div style="font-size:.88rem;color:var(--muted);">Ответ в течение одного рабочего дня.</div>
+      </div>
+    </div>
+    <div class="reveal" style="background:var(--paper-2);border:1.5px solid var(--ink);border-radius:var(--radius);padding:40px 34px;">
+      <form onsubmit="return false" style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div><label>Имя</label><input type="text"></div>
+          <div><label>Компания</label><input type="text"></div>
+        </div>
+        <div><label>E-mail</label><input type="email"></div>
+        <div><label>Телефон</label><input type="tel"></div>
+        <div><label>Сообщение</label><textarea rows="4"></textarea></div>
+        <button class="btn" style="width:100%;">Отправить запрос</button>
+        <p style="text-align:center;font-size:.78rem;color:var(--muted);margin:0;">Демо-форма. Реальная отправка будет активирована при запуске.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FUSSZEILE (hell — Qontrarian-Stil) ===== -->
+<footer style="background:var(--paper);color:var(--body);padding:64px 0 30px;border-top:1.5px solid var(--ink);">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;padding-bottom:40px;border-bottom:1px solid var(--line);">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:var(--ink);margin-bottom:14px;letter-spacing:.02em;">P&M CFO <span style="font-weight:600;color:var(--muted);font-size:.95rem;">Treuhand AG</span></div>
+        <p style="font-size:.9rem;color:var(--body);margin:0;">Бухгалтерия и финансовая функция в реальном времени для компаний кантона Цюрих. CFO-бутик: фидуциарные услуги с ролью внешнего финансового директора.</p>
+      </div>
+      <div style="font-size:.92rem;">
+        <h4 style="color:var(--ink);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;">Контакт</h4>
+        <p style="margin:0 0 8px;color:var(--ink);">Sihlquai 131 · 8006 Zürich</p>
+        <p style="margin:0 0 8px;"><a href="tel:+41762812428" class="link-u">+41 76 281 24 28</a></p>
+      </div>
+      <div style="font-size:.92rem;">
+        <h4 style="color:var(--ink);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;">Правовая информация</h4>
+        <p style="margin:0 0 8px;"><a href="#" class="link-u">Импрессум</a></p>
+        <p style="margin:0 0 8px;"><a href="#" class="link-u">Защита данных</a></p>
+      </div>
+      <div>
+        <h4 style="color:var(--ink);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;">Технология реального времени</h4>
+        <a href="https://arvut.ch" target="_blank" rel="noopener" style="font-family:'Montserrat',sans-serif;color:var(--green);font-weight:800;font-size:1.5rem;letter-spacing:.01em;display:inline-block;line-height:1;">Arvut</a>
+        <p style="font-size:.86rem;color:var(--muted);margin-top:10px;">Автоматизация и бухгалтерская платформа.<br>Данные размещены в Швейцарии.</p>
+      </div>
+    </div>
+    <p style="font-size:.83rem;color:var(--muted);margin-top:24px;">© P&M CFO Treuhand AG · Zürich · Демо-страница</p>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Nach oben"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+addEventListener('scroll',()=>{document.getElementById('toTop').classList.toggle('show',scrollY>600);},{passive:true});
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;const sibs=[...el.parentElement.children].filter(c=>c.classList.contains('reveal'));const idx=Math.max(0,sibs.indexOf(el));el.style.transitionDelay=(idx*0.08)+'s';el.classList.add('in');io.unobserve(el);setTimeout(()=>{el.style.transitionDelay='';},900+idx*80);})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in');}),2200));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+document.querySelectorAll('a[href="#top"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}));
+document.getElementById('toTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

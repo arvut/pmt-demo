@@ -21,7 +21,7 @@ def parse_md(path, with_lang=False):
     out = {}; lang = None; sec = None
     for line in open(path, encoding='utf-8'):
         if with_lang:
-            m = re.match(r'^# (EN|FR|IT|RU)\b', line)
+            m = re.match(r'^#\s*=*\s*(EN|FR|IT|RU)\s*=*\s*$', line.rstrip())
             if m: lang = m.group(1); out.setdefault(lang, {}); continue
         if line.startswith('## '):
             ms = re.match(r'^## \[(\w+)\]', line)
@@ -34,16 +34,20 @@ def parse_md(path, with_lang=False):
             tgt[f'{sec}.{mk.group(1)}'] = mk.group(2)
     return out
 
-# ---- Kanon: Leitsatz wörtlich pro Sprache (span.inv auf CFO-Phrase) ----
-LEIT = {
- 'fr': ('La fiduciaire traditionnelle est le comptable partagé des PME. La fiduciaire du réseau Arvut est aussi leur ', 'directeur financier externe', ' — pour les PME comme pour les entreprises plus grandes.'),
- 'it': ('La fiduciaria tradizionale è il contabile condiviso delle PMI. La fiduciaria della rete Arvut è anche il loro ', 'CFO esterno', ' — per le PMI come per le aziende più strutturate.'),
- 'en': ('A traditional fiduciary is a shared accountant for SMEs. A fiduciary in the Arvut network is also a ', 'fractional CFO', ' — for SMEs and larger companies alike.'),
- 'ru': ('Традиционная фидуциария — это общий бухгалтер для SME. Фидуциария сети Arvut — ещё и ', 'внешний финансовый директор, fractional CFO', ', — причём не только для малого бизнеса, но и для крупных компаний.'),
-}
+# ---- Kanon: Leitsatz wörtlich aus der Übersetzungsdatei; span.inv auf die CFO-Phrase ----
+# (Kanon-Fassung liegt in T[L]['leitsatz.zitat'] — Strategy liefert sie wörtlich; hier nur Markup.)
+CFO_PHRASE = {'en': 'fractional CFO', 'fr': 'directeur financier externe',
+              'it': 'CFO esterno',   'ru': 'внешний финансовый директор'}
+
+def leitsatz_html(T, L, lang):
+    t = T[L]['leitsatz.zitat']
+    ph = CFO_PHRASE[lang]
+    if ph not in t:
+        print(f'  ⚠️ [{lang}] CFO-Phrase «{ph}» nicht im Leitsatz — span fehlt!')
+        return t
+    return t.replace(ph, f'<span class="inv">{ph}</span>', 1)
 
 def markup_map(T, L, lang):
-    lt = LEIT[lang]
     def b_chf(txt, chf):
         return re.sub(re.escape(chf), f'<b style="color:var(--ink);">{chf}</b>', txt, count=1)
     return {
@@ -52,9 +56,9 @@ def markup_map(T, L, lang):
       # col1_li2 (<b>&nbsp;</b>)
       "Vollkosten pro Mitarbeitenden — ab <b style=\"color:var(--ink);\">CHF&nbsp;110'000</b> pro Jahr":
         re.sub(r"CHF 110'000", "<b style=\"color:var(--ink);\">CHF&nbsp;110'000</b>", T[L]['vergleich.col1_li2']),
-      # leitsatz (Kanon, span.inv)
-      'Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr <span class="inv">externer CFO</span> — für KMU wie für grössere Unternehmen.':
-        f'{lt[0]}<span class="inv">{lt[1]}</span>{lt[2]}',
+      # leitsatz (Kanon seit 08.07: «— und nicht nur für kleine Unternehmen»; span.inv)
+      'Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr <span class="inv">externer CFO</span> — und nicht nur für kleine Unternehmen.':
+        leitsatz_html(T, L, lang),
       # preise lead (<b>CHF 110'000</b>)
       "Eine eigene Buchhaltung ist nicht nur der Lohn. Mit Sozialabgaben und Arbeitsplatz kostet ein Buchhalter in Zürich über <b style=\"color:var(--ink);\">CHF 110'000</b> pro Jahr, ein Team mehrere Hunderttausend. Mit P&M erhalten Sie mehr — und zahlen deutlich weniger.":
         b_chf(T[L]['preise.lead'], "CHF 110'000"),
@@ -118,7 +122,14 @@ def build_lang(lang, T, DE):
     src = src.replace('P&M CFO Treuhand — Ihr externer CFO und Buchhaltung in Echtzeit, Zürich', T[L]['meta.title'])
     src = src.replace(DE['meta.meta_description'], T[L]['meta.meta_description'])
 
-    items = [(k, DE[k], T[L].get(k)) for k in DE
+    # NICHT übersetzen: Paketnamen maskieren — Kollisionsschutz vor kurzen Keys («Partner» → Finance Partner).
+    # Maske auch auf Such-Key und Übersetzung anwenden, sonst matchen Keys mit Paketnamen nicht mehr.
+    PROTECT = ['Real-Time Books', 'Finance Partner', 'Virtual CFO']
+    def mask(t):
+        for i, p in enumerate(PROTECT): t = t.replace(p, f'\x00P{i}\x00')
+        return t
+    src = mask(src)
+    items = [(k, mask(DE[k]), mask(T[L].get(k))) for k in DE
              if k not in MARKUP_KEYS and DE[k] and T[L].get(k) and not DE[k].startswith('[')]
     items.sort(key=lambda x: len(x[1]), reverse=True)
     for k, de_t, tg in items:
@@ -126,7 +137,9 @@ def build_lang(lang, T, DE):
         if de_t in src: src = src.replace(de_t, tg)
         elif f'>{de_t}<' in src: src = src.replace(f'>{de_t}<', f'>{tg}<')
         elif f'>{de_t}</a>' in src: src = src.replace(f'>{de_t}</a>', f'>{tg}</a>')
+        elif tg in src: pass   # bereits durch gleichlautenden Key ersetzt (z.B. CTA ×3)
         else: print(f'  ⚠️ [{lang}] clean text not found: {k} = {de_t[:45]}')
+    for i, p in enumerate(PROTECT): src = src.replace(f'\x00P{i}\x00', p)
     return finalize(src, lang)
 
 def finalize(src, lang):
