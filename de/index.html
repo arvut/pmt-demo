@@ -11,7 +11,7 @@
 :root{
   --paper:#F8ECE4; --paper-2:#F3E8DF; --ink:#151617; --ink-2:#2D2F32;
   --body:#4A4D50; --muted:#8B8F93; --line:#DCD2C9; --white:#FCF4EC;
-  --green:#009b9f; --gold:#d9a441; --radius:8px;
+  --green:#009b9f; --gold:#d9a441; --radius:2px;
 }
 *{-webkit-font-smoothing:antialiased;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -36,7 +36,7 @@ h1,h2,h3,h4{font-family:'Montserrat',-apple-system,Helvetica,Arial,sans-serif;co
 .btn-light:hover{background:transparent;color:var(--paper);border-color:var(--paper);}
 .btn-ghost{background:transparent;color:var(--paper);border-color:rgba(248,236,228,.5);}
 .btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
-.nav-a{font-family:'Inconsolata',monospace;font-weight:600;font-size:.92rem;letter-spacing:.01em;color:var(--ink-2);transition:color .2s;border-bottom:2px solid transparent;}
+.nav-a{font-family:'Inconsolata',monospace;font-weight:500;font-size:.95rem;letter-spacing:.01em;color:var(--ink);transition:color .2s;border-bottom:2px solid transparent;}
 .nav-a:hover{color:var(--ink);border-bottom-color:var(--ink);}
 .link-u{color:var(--ink);font-weight:700;border-bottom:2px solid var(--ink);}
 .card{position:relative;background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 30px;box-shadow:5px 5px 0 var(--ink);transition:transform .25s,box-shadow .25s;}
@@ -56,6 +56,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 #toTop{position:fixed;right:22px;bottom:22px;z-index:60;width:46px;height:46px;background:var(--ink);color:var(--paper);border:none;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(12px);transition:.3s;}
 #toTop.show{opacity:1;visibility:visible;transform:none;}
 @media(max-width:900px){.hide-mob{display:none!important;}}
+@media(max-width:560px){.logo-wave{display:none;}}
 @media(max-width:820px){.g2{grid-template-columns:1fr!important;gap:36px!important;}}
 </style>
 </head>
@@ -64,7 +65,10 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 <!-- ===== KOPFZEILE (Logo links, Menü rechts) — Qontrarian-Monochrom ===== -->
 <header id="top" style="position:sticky;top:0;z-index:50;background:rgba(248,236,228,.95);backdrop-filter:saturate(160%) blur(10px);border-bottom:1.5px solid var(--ink);">
   <div class="wrap" style="height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
-    <a href="#top" aria-label="P&M CFO Treuhand AG"><img src="../assets/img/logo-pmt.png?v=1" alt="P&M CFO Treuhand AG" style="height:40px;width:auto;"></a>
+    <a href="#top" aria-label="P&M CFO Treuhand AG" style="display:flex;align-items:center;gap:15px;">
+      <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);letter-spacing:-.02em;line-height:1;">P&amp;M&nbsp;CFO</span>
+      <svg width="132" height="30" viewBox="0 0 157 34" class="logo-wave" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="color:var(--ink);flex-shrink:0;"><rect x="0.0" y="15.9" width="2.0" height="2.1" rx="1" fill="currentColor"/><rect x="3.6" y="14.8" width="2.0" height="4.5" rx="1" fill="currentColor"/><rect x="7.2" y="12.7" width="2.0" height="8.7" rx="1" fill="currentColor"/><rect x="10.8" y="13.3" width="2.0" height="7.4" rx="1" fill="currentColor"/><rect x="14.4" y="10.2" width="2.0" height="13.7" rx="1" fill="currentColor"/><rect x="18.0" y="11.3" width="2.0" height="11.4" rx="1" fill="currentColor"/><rect x="21.6" y="9.4" width="2.0" height="15.1" rx="1" fill="currentColor"/><rect x="25.2" y="7.2" width="2.0" height="19.6" rx="1" fill="currentColor"/><rect x="28.8" y="7.5" width="2.0" height="19.1" rx="1" fill="currentColor"/><rect x="32.4" y="8.2" width="2.0" height="17.7" rx="1" fill="currentColor"/><rect x="36.0" y="5.2" width="2.0" height="23.5" rx="1" fill="currentColor"/><rect x="39.6" y="8.7" width="2.0" height="16.7" rx="1" fill="currentColor"/><rect x="43.2" y="5.4" width="2.0" height="23.3" rx="1" fill="currentColor"/><rect x="46.8" y="8.7" width="2.0" height="16.5" rx="1" fill="currentColor"/><rect x="50.4" y="6.7" width="2.0" height="20.5" rx="1" fill="currentColor"/><rect x="54.0" y="3.0" width="2.0" height="27.9" rx="1" fill="currentColor"/><rect x="57.6" y="7.7" width="2.0" height="18.7" rx="1" fill="currentColor"/><rect x="61.2" y="3.9" width="2.0" height="26.1" rx="1" fill="currentColor"/><rect x="64.8" y="9.2" width="2.0" height="15.6" rx="1" fill="currentColor"/><rect x="68.4" y="5.9" width="2.0" height="22.1" rx="1" fill="currentColor"/><rect x="72.0" y="10.3" width="2.0" height="13.4" rx="1" fill="currentColor"/><rect x="75.6" y="8.2" width="2.0" height="17.6" rx="1" fill="currentColor"/><rect x="79.2" y="12.2" width="2.0" height="9.6" rx="1" fill="currentColor"/><rect x="82.8" y="8.2" width="2.0" height="17.5" rx="1" fill="currentColor"/><rect x="86.4" y="10.4" width="2.0" height="13.3" rx="1" fill="currentColor"/><rect x="90.0" y="6.1" width="2.0" height="21.9" rx="1" fill="currentColor"/><rect x="93.6" y="9.3" width="2.0" height="15.4" rx="1" fill="currentColor"/><rect x="97.2" y="4.2" width="2.0" height="25.6" rx="1" fill="currentColor"/><rect x="100.8" y="7.9" width="2.0" height="18.2" rx="1" fill="currentColor"/><rect x="104.4" y="3.5" width="2.0" height="27.1" rx="1" fill="currentColor"/><rect x="108.0" y="7.1" width="2.0" height="19.8" rx="1" fill="currentColor"/><rect x="111.6" y="9.1" width="2.0" height="15.9" rx="1" fill="currentColor"/><rect x="115.2" y="5.9" width="2.0" height="22.3" rx="1" fill="currentColor"/><rect x="118.8" y="9.1" width="2.0" height="15.8" rx="1" fill="currentColor"/><rect x="122.4" y="5.9" width="2.0" height="22.2" rx="1" fill="currentColor"/><rect x="126.0" y="8.7" width="2.0" height="16.5" rx="1" fill="currentColor"/><rect x="129.6" y="8.2" width="2.0" height="17.7" rx="1" fill="currentColor"/><rect x="133.2" y="8.0" width="2.0" height="18.0" rx="1" fill="currentColor"/><rect x="136.8" y="10.2" width="2.0" height="13.7" rx="1" fill="currentColor"/><rect x="140.4" y="11.9" width="2.0" height="10.2" rx="1" fill="currentColor"/><rect x="144.0" y="11.0" width="2.0" height="12.0" rx="1" fill="currentColor"/><rect x="147.6" y="13.8" width="2.0" height="6.3" rx="1" fill="currentColor"/><rect x="151.2" y="13.4" width="2.0" height="7.2" rx="1" fill="currentColor"/><rect x="154.8" y="15.2" width="2.0" height="3.5" rx="1" fill="currentColor"/></svg>
+    </a>
     <nav class="hide-mob" style="display:flex;align-items:center;gap:26px;">
       <a href="#leistungen" class="nav-a">Leistungen</a>
       <a href="#preise" class="nav-a">Pakete</a>
