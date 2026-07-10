@@ -9,9 +9,9 @@
 <style>
 @import url('../assets/fonts/fonts.css');
 :root{
-  --paper:#F8ECE4; --paper-2:#EBDFD7; --ink:#151617; --ink-2:#2D2F32;
-  --body:#4A4D50; --muted:#8B8F93; --line:#DCD2C9; --white:#FFFFFF;
-  --green:#009b9f; --radius:4px;
+  --paper:#F8ECE4; --paper-2:#F3E8DF; --ink:#151617; --ink-2:#2D2F32;
+  --body:#4A4D50; --muted:#8B8F93; --line:#DCD2C9; --white:#FCF4EC;
+  --green:#009b9f; --gold:#d9a441; --radius:8px;
 }
 *{-webkit-font-smoothing:antialiased;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -22,21 +22,27 @@ h1,h2,h3,h4{font-family:'Montserrat',-apple-system,Helvetica,Arial,sans-serif;co
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
 .eyebrow{font-family:'Inconsolata',monospace;text-transform:uppercase;letter-spacing:.22em;font-weight:700;font-size:.72rem;color:var(--ink-2);}
 .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--ink);vertical-align:.22em;margin-right:12px;}
-.h-sec{font-size:clamp(1.7rem,3.4vw,2.4rem);}
+/* Sektionsüberschrift — links, gross, ohne Dekor (Qontrarian-Stil) */
+.sec-head{text-align:left;max-width:none;margin:0 0 44px;}
+.h-sec{font-size:clamp(2rem,4.2vw,3rem);letter-spacing:-.03em;}
 .lead{font-size:1.06rem;color:var(--body);}
 .inv{background:var(--ink);color:var(--paper);padding:.04em .28em;}
-.btn{display:inline-block;font-family:'Inconsolata',monospace;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;
-  background:var(--ink);color:var(--paper);padding:15px 30px;border:2px solid var(--ink);border-radius:var(--radius);cursor:pointer;transition:.2s;}
+.btn{display:inline-block;font-family:'Inconsolata',monospace;font-weight:600;font-size:.92rem;letter-spacing:.02em;
+  background:var(--ink);color:var(--paper);padding:14px 28px;border:1.5px solid var(--ink);border-radius:var(--radius);cursor:pointer;transition:.2s;}
 .btn:hover{background:transparent;color:var(--ink);}
 .btn-out{background:transparent;color:var(--ink);}
 .btn-out:hover{background:var(--ink);color:var(--paper);}
 .btn-light{background:var(--paper);color:var(--ink);border-color:var(--paper);}
 .btn-light:hover{background:transparent;color:var(--paper);border-color:var(--paper);}
-.nav-a{font-family:'Inconsolata',monospace;font-weight:600;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);transition:color .2s;border-bottom:2px solid transparent;}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(248,236,228,.5);}
+.btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.nav-a{font-family:'Inconsolata',monospace;font-weight:600;font-size:.92rem;letter-spacing:.01em;color:var(--ink-2);transition:color .2s;border-bottom:2px solid transparent;}
 .nav-a:hover{color:var(--ink);border-bottom-color:var(--ink);}
 .link-u{color:var(--ink);font-weight:700;border-bottom:2px solid var(--ink);}
-.card{background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 30px;transition:transform .25s,box-shadow .25s;}
-.card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink);}
+.card{position:relative;background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 30px;box-shadow:5px 5px 0 var(--ink);transition:transform .25s,box-shadow .25s;}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+.card-x{position:absolute;top:16px;right:16px;width:30px;height:30px;border:1.5px solid var(--ink);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--ink);background:var(--paper);}
+.card-x svg{width:15px;height:15px;}
 .ico{width:52px;height:52px;border:1.5px solid var(--ink);border-radius:var(--radius);background:var(--paper);color:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
 .ico svg{width:26px;height:26px;}
 .card h3{font-size:1.14rem;margin-bottom:10px;}
@@ -66,31 +72,32 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
       <a href="#team" class="nav-a">Team</a>
       <a href="#region" class="nav-a">Region</a>
     </nav>
-    <a href="#kontakt" class="btn" style="padding:11px 22px;font-size:.8rem;">Offerte anfordern</a>
+    <a href="#kontakt" class="btn btn-out" style="padding:11px 22px;font-size:.82rem;">Offerte anfordern</a>
   </div>
 </header>
 
-<!-- ===== HERO (typografisch, monochrom — kein Foto) ===== -->
-<section style="padding:104px 0 96px;background:var(--paper);border-bottom:1.5px solid var(--ink);">
-  <div class="wrap">
-    <div class="reveal" style="max-width:820px;">
-      <p class="eyebrow" style="margin-bottom:22px;">P&M CFO Treuhand · Zürich</p>
-      <h1 style="font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;margin-bottom:26px;">Die Finanzen Ihres Unternehmens — <span class="inv">in Echtzeit</span></h1>
-      <p style="font-size:1.14rem;color:var(--body);max-width:620px;margin-bottom:34px;">P&M CFO Treuhand übernimmt Ihre Buchhaltung und die Rolle des externen Finanzchefs. Bilanz, Gewinn und offene MWST — jeden Tag auf Ihrem Bildschirm, statt einmal im Jahr im Jahresabschluss.</p>
+<!-- ===== HERO (dunkles Vollbild mit Netzwerk-Bild — Qontrarian-Stil) ===== -->
+<section style="position:relative;background:#0b0b0d;color:var(--paper);overflow:hidden;">
+  <img src="../assets/img/hero-bg.png?v=1" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;">
+  <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.62) 55%,rgba(11,11,13,.35) 100%);"></div>
+  <div class="wrap" style="position:relative;padding:118px 24px 112px;">
+    <div class="reveal" style="max-width:860px;">
+      <p class="eyebrow" style="margin-bottom:24px;color:rgba(248,236,228,.85);">P&M CFO Treuhand · Zürich</p>
+      <h1 style="font-size:clamp(2.3rem,5.2vw,3.7rem);line-height:1.07;margin-bottom:26px;color:#fff;">Die Finanzen Ihres Unternehmens — in Echtzeit</h1>
+      <p style="font-size:1.14rem;color:rgba(248,236,228,.9);max-width:680px;margin-bottom:36px;">P&M CFO Treuhand übernimmt Ihre Buchhaltung und die Rolle des externen Finanzchefs. Bilanz, Gewinn und offene MWST — jeden Tag auf Ihrem Bildschirm, statt einmal im Jahr im Jahresabschluss.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="#kontakt" class="btn">Offerte anfordern</a>
-        <a href="#preise" class="btn btn-out">Pakete ansehen</a>
+        <a href="#kontakt" class="btn btn-light">Offerte anfordern</a>
+        <a href="#preise" class="btn btn-ghost">Pakete ansehen</a>
       </div>
-      <p style="margin:36px 0 0;font-size:.86rem;color:var(--muted);border-top:1.5px solid var(--line);padding-top:20px;max-width:620px;">CFO steht bei uns im Namen — und im Programm: Buchhaltung, Reporting und Finanzführung aus einer Hand, für Unternehmen im Kanton Zürich.</p>
+      <p style="margin:38px 0 0;font-size:.86rem;color:rgba(248,236,228,.62);border-top:1.5px solid rgba(248,236,228,.2);padding-top:20px;max-width:680px;">CFO steht bei uns im Namen — und im Programm: Buchhaltung, Reporting und Finanzführung aus einer Hand, für Unternehmen im Kanton Zürich.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== WAS SICH ÄNDERT (Heute vs. Mit P&M) ===== -->
-<section style="padding:92px 0;background:var(--paper);">
+<section style="padding:96px 0;background:var(--paper);">
   <div class="wrap">
-    <div class="reveal" style="max-width:820px;margin:0 auto 50px;text-align:center;">
-      <p class="eyebrow" style="margin-bottom:14px;">Was sich ändert</p>
+    <div class="reveal sec-head">
       <h2 class="h-sec">Ihre Zahlen nur einmal im Jahr?<br>Das gehört der Vergangenheit an.</h2>
     </div>
     <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch;">
@@ -117,7 +124,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 </section>
 
 <!-- ===== LEITSATZ (Positionierung — Kanon, wörtlich) ===== -->
-<section style="padding:80px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);">
+<section style="padding:90px 0;background:var(--paper);">
   <div class="wrap reveal" style="max-width:880px;margin:0 auto;text-align:center;">
     <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:3rem;color:var(--ink);line-height:1;margin-bottom:10px;">„</div>
     <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.25rem,2.4vw,1.6rem);color:var(--ink);line-height:1.46;letter-spacing:-.01em;margin:0;">
@@ -129,10 +136,9 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 <!-- ===== LEISTUNGEN ===== -->
 <section id="leistungen" style="padding:92px 0;background:var(--paper);">
   <div class="wrap">
-    <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
-      <p class="eyebrow" style="margin-bottom:14px;">Leistungen</p>
+    <div class="reveal sec-head">
       <h2 class="h-sec">Eine Finanzfunktion auf Konzernniveau</h2>
-      <p class="lead" style="margin-top:16px;">Solvenz und echte Marge sehen Sie heute — nicht erst im Jahresabschluss.</p>
+      <p class="lead" style="margin-top:18px;">Solvenz und echte Marge sehen Sie heute — nicht erst im Jahresabschluss.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;">
       <div class="card reveal">
@@ -170,10 +176,9 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 </section>
 
 <!-- ===== DARUM LOHNT ES SICH (Kennzahlen) ===== -->
-<section style="padding:88px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);">
+<section style="padding:96px 0;background:var(--paper);">
   <div class="wrap">
-    <div class="reveal" style="max-width:720px;margin:0 auto 48px;text-align:center;">
-      <p class="eyebrow" style="margin-bottom:14px;">Darum lohnt es sich</p>
+    <div class="reveal sec-head">
       <h2 class="h-sec">Die Stärke eines Konzerns — ohne dessen Personalbestand</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;">
@@ -198,12 +203,11 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 </section>
 
 <!-- ===== PREISE ===== -->
-<section id="preise" style="padding:92px 0;background:var(--paper);border-top:1.5px solid var(--ink);">
+<section id="preise" style="padding:96px 0;background:var(--paper);">
   <div class="wrap">
-    <div class="reveal" style="max-width:720px;margin:0 auto 30px;text-align:center;">
-      <p class="eyebrow" style="margin-bottom:14px;">Pakete</p>
+    <div class="reveal sec-head">
       <h2 class="h-sec">Ein fairer Preis — verglichen mit eigenem Personal</h2>
-      <p class="lead" style="margin-top:16px;">Eine eigene Buchhaltung ist nicht nur der Lohn. Mit Sozialabgaben und Arbeitsplatz kostet ein Buchhalter in Zürich über <b style="color:var(--ink);">CHF 110'000</b> pro Jahr, ein Team mehrere Hunderttausend. Mit P&M erhalten Sie mehr — und zahlen deutlich weniger.</p>
+      <p class="lead" style="margin-top:18px;">Eine eigene Buchhaltung ist nicht nur der Lohn. Mit Sozialabgaben und Arbeitsplatz kostet ein Buchhalter in Zürich über <b style="color:var(--ink);">CHF 110'000</b> pro Jahr, ein Team mehrere Hunderttausend. Mit P&M erhalten Sie mehr — und zahlen deutlich weniger.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:stretch;margin-top:44px;">
       <div class="reveal card" style="display:flex;flex-direction:column;">
@@ -240,10 +244,9 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 </section>
 
 <!-- ===== ARBEITSWEISE ===== -->
-<section id="ablauf" style="padding:92px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);">
+<section id="ablauf" style="padding:96px 0;background:var(--paper);">
   <div class="wrap">
-    <div class="reveal" style="max-width:680px;margin:0 auto 54px;text-align:center;">
-      <p class="eyebrow" style="margin-bottom:14px;">Arbeitsweise</p>
+    <div class="reveal sec-head">
       <h2 class="h-sec">Drei Schritte zu Finanzen in Echtzeit</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px;">
@@ -266,10 +269,9 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 <!-- ===== IHR FINANZTEAM ===== -->
 <section id="team" style="padding:92px 0;background:var(--paper);">
   <div class="wrap">
-    <div class="reveal" style="max-width:760px;margin:0 auto 50px;text-align:center;">
-      <p class="eyebrow" style="margin-bottom:14px;">Ihr Finanzteam</p>
+    <div class="reveal sec-head">
       <h2 class="h-sec">Hinter den Zahlen stehen Menschen, die Ihr Geschäft kennen</h2>
-      <p class="lead" style="margin-top:16px;">Die Plattform erledigt die Routine — das Team von P&M übernimmt Analyse, Reporting und Entscheide.</p>
+      <p class="lead" style="margin-top:18px;">Die Plattform erledigt die Routine — das Team von P&M übernimmt Analyse, Reporting und Entscheide.</p>
     </div>
     <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:860px;margin:0 auto;">
       <div class="reveal card" style="display:flex;gap:22px;align-items:center;">
@@ -294,10 +296,9 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 </section>
 
 <!-- ===== REGION ===== -->
-<section id="region" style="padding:88px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);">
+<section id="region" style="padding:96px 0;background:var(--paper);">
   <div class="wrap g2" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
     <div class="reveal">
-      <p class="eyebrow" style="margin-bottom:14px;">Region</p>
       <h2 class="h-sec" style="margin-bottom:22px;">In Ihrer Nähe — im Herzen von Zürich</h2>
       <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:13px;font-size:.98rem;">
         <li style="display:flex;gap:12px;"><span style="color:var(--ink);font-weight:700;">·</span>Büro am Sihlquai 131, 8006 Zürich</li>
@@ -318,7 +319,6 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 <section id="kontakt" style="padding:92px 0;background:var(--paper);">
   <div class="wrap g2" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
     <div class="reveal">
-      <p class="eyebrow" style="margin-bottom:14px;">Kontakt</p>
       <h2 class="h-sec" style="margin-bottom:18px;">Beginnen wir mit einem kurzen Gespräch</h2>
       <p class="lead" style="max-width:460px;margin-bottom:30px;">Erzählen Sie uns von Ihrem Unternehmen — in 30 Minuten zeigen wir Ihnen, wie Ihre Buchhaltung in Echtzeit aussieht und wie viel Sie sparen. Das Erstgespräch ist kostenlos.</p>
       <div style="display:flex;flex-direction:column;gap:16px;font-size:.98rem;">
@@ -348,26 +348,31 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
   </div>
 </section>
 
-<!-- ===== FUSSZEILE ===== -->
-<footer style="background:var(--ink);color:rgba(248,236,228,.72);padding:58px 0 28px;">
+<!-- ===== FUSSZEILE (hell — Qontrarian-Stil) ===== -->
+<footer style="background:var(--paper);color:var(--body);padding:64px 0 30px;border-top:1.5px solid var(--ink);">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;padding-bottom:38px;border-bottom:1px solid rgba(248,236,228,.18);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;padding-bottom:40px;border-bottom:1px solid var(--line);">
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:14px;letter-spacing:.04em;">P&M CFO <span style="font-weight:600;color:rgba(248,236,228,.6);font-size:.95rem;">Treuhand AG</span></div>
-        <p style="font-size:.9rem;color:rgba(248,236,228,.6);max-width:290px;margin:0;">Buchhaltung und Finanzfunktion in Echtzeit für Unternehmen im Kanton Zürich. Die CFO-Boutique: Treuhand mit der Rolle des externen Finanzchefs.</p>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:var(--ink);margin-bottom:14px;letter-spacing:.02em;">P&M CFO <span style="font-weight:600;color:var(--muted);font-size:.95rem;">Treuhand AG</span></div>
+        <p style="font-size:.9rem;color:var(--body);margin:0;">Buchhaltung und Finanzfunktion in Echtzeit für Unternehmen im Kanton Zürich. Die CFO-Boutique: Treuhand mit der Rolle des externen Finanzchefs.</p>
       </div>
-      <div style="font-size:.9rem;">
-        <h4 style="color:#fff;font-size:.95rem;margin-bottom:14px;">Kontakt</h4>
-        <p style="margin:0 0 6px;">P&M CFO Treuhand AG · Sihlquai 131 · 8006 Zürich</p>
-        <p style="margin:0 0 6px;color:rgba(248,236,228,.6);">+41 76 281 24 28</p>
+      <div style="font-size:.92rem;">
+        <h4 style="color:var(--ink);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;">Kontakt</h4>
+        <p style="margin:0 0 8px;color:var(--ink);">Sihlquai 131 · 8006 Zürich</p>
+        <p style="margin:0 0 8px;"><a href="tel:+41762812428" class="link-u">+41 76 281 24 28</a></p>
+      </div>
+      <div style="font-size:.92rem;">
+        <h4 style="color:var(--ink);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;">Rechtliches</h4>
+        <p style="margin:0 0 8px;"><a href="#" class="link-u">Impressum</a></p>
+        <p style="margin:0 0 8px;"><a href="#" class="link-u">Datenschutz</a></p>
       </div>
       <div>
-        <h4 style="color:#fff;font-size:.95rem;margin-bottom:14px;">Echtzeit-Technologie</h4>
-        <a href="https://arvut.ch" target="_blank" rel="noopener" style="font-family:'Montserrat',sans-serif;color:var(--green);font-weight:800;font-size:1.6rem;letter-spacing:.01em;display:inline-block;line-height:1;">Arvut</a>
-        <p style="font-size:.86rem;color:rgba(248,236,228,.6);margin-top:8px;">Automatisierung und Buchhaltungsplattform.<br>Daten in der Schweiz gehostet.</p>
+        <h4 style="color:var(--ink);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;">Echtzeit-Technologie</h4>
+        <a href="https://arvut.ch" target="_blank" rel="noopener" style="font-family:'Montserrat',sans-serif;color:var(--green);font-weight:800;font-size:1.5rem;letter-spacing:.01em;display:inline-block;line-height:1;">Arvut</a>
+        <p style="font-size:.86rem;color:var(--muted);margin-top:10px;">Automatisierung und Buchhaltungsplattform.<br>Daten in der Schweiz gehostet.</p>
       </div>
     </div>
-    <p style="text-align:center;font-size:.83rem;color:rgba(248,236,228,.45);margin-top:24px;">© P&M CFO Treuhand AG · Zürich · Demo-Seite</p>
+    <p style="font-size:.83rem;color:var(--muted);margin-top:24px;">© P&M CFO Treuhand AG · Zürich · Demo-Seite</p>
   </div>
 </footer>
 
