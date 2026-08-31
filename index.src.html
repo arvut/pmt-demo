@@ -60,23 +60,28 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 @media(max-width:820px){.g2{grid-template-columns:1fr!important;gap:36px!important;}}
 </style>
 <style>
-/* 320 px, 31.08.2026. Пять причин вылета за экран — все замерены, не предположены:
+/* 320/375 px, 31.08.2026. Шесть причин вылета и обрезки — все замерены:
    1) у флекс/грид-детей min-width по умолчанию `auto`, то есть трек не сжимается
       ниже min-content: длинное слово в одиночку держит колонку шире экрана;
    2) немецкие композиты («Buchhaltungsplattform») как раз такие слова;
    3) .g2 задан классом → ему нужен явный minmax(0,1fr);
    4) шапка — flex с nowrap: логотип + меню + CTA не помещаются в 320;
-   5) reveal-анимация сдвигает блок вбок, и страница на этот сдвиг расширяется.
+   5) 🔴 но у шапки бывает ЖЁСТКАЯ высота (merlas: sticky, height:108px) — тогда
+      перенос строки выталкивает переключатель языков ЗА неё, и он обрезается.
+      Поэтому вместе с переносом обязателен height:auto. Замер этого не видит:
+      scrollWidth остаётся 0, дефект чисто зрительный;
+   6) reveal-анимация сдвигает блок вбок, страница расширяется на этот сдвиг —
+      но пока блок сдвинут, у него opacity:0, так что клип ничего видимого не режет.
    Инлайновые minmax(Npx,1fr) правятся в самой разметке — снаружи их не достать.
-   `*{min-width:0}` безобиден: `auto` особый только у флекс/грид-детей, у остальных
-   это и так начальное значение. Обрезать содержимое им НЕЛЬЗЯ — clip оставлен
-   только для анимаций и фоновых подложек (и это clip, не hidden: sticky не ломается).
+   `*{min-width:0}` безобиден: `auto` особый только у флекс/грид-детей.
+   clip, а не hidden: не создаёт скролл-контейнер, sticky не ломается.
    Всё живёт только ≤560 px: на десктопе раскладка не меняется. */
 @media(max-width:560px){
   *{min-width:0}
   body{overflow-wrap:break-word;hyphens:auto}
   .g2{grid-template-columns:minmax(0,1fr)!important}
   .wrap{flex-wrap:wrap}
+  header .wrap{height:auto!important;min-height:0}
   nav,.menu{flex-wrap:wrap}
   section,header,footer,main{overflow-x:clip}
 }
