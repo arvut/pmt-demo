@@ -60,6 +60,28 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 @media(max-width:820px){.g2{grid-template-columns:1fr!important;gap:36px!important;}}
 .lang-switch{display:flex;align-items:center;gap:10px;margin-left:6px;}.lang-switch a.lang{font-family:'Inconsolata',monospace;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}.lang-switch a.lang:hover{color:var(--ink);}.lang-switch a.lang.on{color:var(--ink);border-bottom:2px solid var(--ink);}
 </style>
+<style>
+/* 320 px, 31.08.2026. Пять причин вылета за экран — все замерены, не предположены:
+   1) у флекс/грид-детей min-width по умолчанию `auto`, то есть трек не сжимается
+      ниже min-content: длинное слово в одиночку держит колонку шире экрана;
+   2) немецкие композиты («Buchhaltungsplattform») как раз такие слова;
+   3) .g2 задан классом → ему нужен явный minmax(0,1fr);
+   4) шапка — flex с nowrap: логотип + меню + CTA не помещаются в 320;
+   5) reveal-анимация сдвигает блок вбок, и страница на этот сдвиг расширяется.
+   Инлайновые minmax(Npx,1fr) правятся в самой разметке — снаружи их не достать.
+   `*{min-width:0}` безобиден: `auto` особый только у флекс/грид-детей, у остальных
+   это и так начальное значение. Обрезать содержимое им НЕЛЬЗЯ — clip оставлен
+   только для анимаций и фоновых подложек (и это clip, не hidden: sticky не ломается).
+   Всё живёт только ≤560 px: на десктопе раскладка не меняется. */
+@media(max-width:560px){
+  *{min-width:0}
+  body{overflow-wrap:break-word;hyphens:auto}
+  .g2{grid-template-columns:minmax(0,1fr)!important}
+  .wrap{flex-wrap:wrap}
+  nav,.menu{flex-wrap:wrap}
+  section,header,footer,main{overflow-x:clip}
+}
+</style>
 </head>
 <body>
 
@@ -146,7 +168,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
       <h2 class="h-sec">Eine Finanzfunktion auf Konzernniveau</h2>
       <p class="lead" style="margin-top:18px;">Solvenz und echte Marge sehen Sie heute — nicht erst im Jahresabschluss.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:22px;">
       <div class="card reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v5.5l3.5 2"/></svg></div>
         <h3>Buchhaltung in Echtzeit</h3>
@@ -187,7 +209,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
     <div class="reveal sec-head">
       <h2 class="h-sec">Die Stärke eines Konzerns — ohne dessen Personalbestand</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:22px;">
       <div class="reveal" style="background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:34px 26px;text-align:center;">
         <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.9rem;color:var(--ink);letter-spacing:-.02em;">CHF 110'000+</div>
         <div style="margin-top:8px;font-size:.9rem;color:var(--body);">Vollkosten eines internen Buchhalters in Zürich, pro Jahr</div>
@@ -215,7 +237,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
       <h2 class="h-sec">Ein fairer Preis — verglichen mit eigenem Personal</h2>
       <p class="lead" style="margin-top:18px;">Eine eigene Buchhaltung ist nicht nur der Lohn. Mit Sozialabgaben und Arbeitsplatz kostet ein Buchhalter in Zürich über <b style="color:var(--ink);">CHF 110'000</b> pro Jahr, ein Team mehrere Hunderttausend. Mit P&M erhalten Sie mehr — und zahlen deutlich weniger.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:stretch;margin-top:44px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px;align-items:stretch;margin-top:44px;">
       <div class="reveal card" style="display:flex;flex-direction:column;">
         <span class="eyebrow">Real-Time Books</span>
         <p style="font-size:.86rem;margin:8px 0 0;color:var(--muted);">10–49 Mitarbeitende</p>
@@ -255,7 +277,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
     <div class="reveal sec-head">
       <h2 class="h-sec">Drei Schritte zu Finanzen in Echtzeit</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:28px;">
       <div class="reveal" style="text-align:center;"><div style="width:56px;height:56px;background:var(--ink);color:var(--paper);border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">1</div><h3 style="font-size:1.16rem;margin-bottom:11px;">Kennenlernen und Analyse</h3><p style="font-size:.95rem;">Ein 30-minütiges Gespräch; wir zeigen Ihnen das Portal am Beispiel Ihrer Branche.</p></div>
       <div class="reveal" style="text-align:center;"><div style="width:56px;height:56px;background:var(--ink);color:var(--paper);border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">2</div><h3 style="font-size:1.16rem;margin-bottom:11px;">Umstellung</h3><p style="font-size:.95rem;">In der Regel 2–4 Wochen, ohne Unterbruch Ihres Betriebs.</p></div>
       <div class="reveal" style="text-align:center;"><div style="width:56px;height:56px;background:var(--ink);color:var(--paper);border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">3</div><h3 style="font-size:1.16rem;margin-bottom:11px;">Arbeit in Echtzeit</h3><p style="font-size:.95rem;">Tägliche Updates, monatliche Besprechungen mit Ihrem Ansprechpartner bei P&M.</p></div>
@@ -357,7 +379,7 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 <!-- ===== FUSSZEILE (hell — Qontrarian-Stil) ===== -->
 <footer style="background:var(--paper);color:var(--body);padding:64px 0 30px;border-top:1.5px solid var(--ink);">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;padding-bottom:40px;border-bottom:1px solid var(--line);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:44px;padding-bottom:40px;border-bottom:1px solid var(--line);">
       <div>
         <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:var(--ink);margin-bottom:14px;letter-spacing:.02em;">P&M CFO <span style="font-weight:600;color:var(--muted);font-size:.95rem;">Treuhand AG</span></div>
         <p style="font-size:.9rem;color:var(--body);margin:0;">Buchhaltung und Finanzfunktion in Echtzeit für Unternehmen im Kanton Zürich. Die CFO-Boutique: Treuhand mit der Rolle des externen Finanzchefs.</p>

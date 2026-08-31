@@ -1,1 +1,23 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="de/"><meta http-equiv="refresh" content="0; url=de/"><script>location.replace("de/"+location.hash)</script><title>P&M CFO Treuhand AG</title></head><body style="font-family:sans-serif;padding:2rem">Weiter zu <a href="de/">P&M CFO Treuhand</a>…</body></html>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="de/"><meta http-equiv="refresh" content="0; url=de/"><script>location.replace("de/"+location.hash)</script><title>P&M CFO Treuhand AG</title><style>
+/* 320 px, 31.08.2026. Пять причин вылета за экран — все замерены, не предположены:
+   1) у флекс/грид-детей min-width по умолчанию `auto`, то есть трек не сжимается
+      ниже min-content: длинное слово в одиночку держит колонку шире экрана;
+   2) немецкие композиты («Buchhaltungsplattform») как раз такие слова;
+   3) .g2 задан классом → ему нужен явный minmax(0,1fr);
+   4) шапка — flex с nowrap: логотип + меню + CTA не помещаются в 320;
+   5) reveal-анимация сдвигает блок вбок, и страница на этот сдвиг расширяется.
+   Инлайновые minmax(Npx,1fr) правятся в самой разметке — снаружи их не достать.
+   `*{min-width:0}` безобиден: `auto` особый только у флекс/грид-детей, у остальных
+   это и так начальное значение. Обрезать содержимое им НЕЛЬЗЯ — clip оставлен
+   только для анимаций и фоновых подложек (и это clip, не hidden: sticky не ломается).
+   Всё живёт только ≤560 px: на десктопе раскладка не меняется. */
+@media(max-width:560px){
+  *{min-width:0}
+  body{overflow-wrap:break-word;hyphens:auto}
+  .g2{grid-template-columns:minmax(0,1fr)!important}
+  .wrap{flex-wrap:wrap}
+  nav,.menu{flex-wrap:wrap}
+  section,header,footer,main{overflow-x:clip}
+}
+</style>
+</head><body style="font-family:sans-serif;padding:2rem">Weiter zu <a href="de/">P&M CFO Treuhand</a>…</body></html>
