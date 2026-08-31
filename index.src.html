@@ -84,6 +84,10 @@ label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-t
 @media(max-width:560px){
   *{min-width:0}
   body{overflow-wrap:break-word;hyphens:auto}
+  /* Перенос уместен в тексте абзаца, но не в крупном заголовке: на 320 выходило
+     «Финансы вашей ком-пании». Длинное слово в заголовке всё равно не вылезет —
+     его подхватит overflow-wrap выше, просто без дефиса. */
+  h1,h2{hyphens:manual}
   .g2{grid-template-columns:minmax(0,1fr)!important}
   .wrap{flex-wrap:wrap}
   header .wrap{height:auto!important;min-height:0}
