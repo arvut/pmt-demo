@@ -13,6 +13,27 @@ DE_SOURCE = os.path.expanduser('~/Downloads/pmt_landing_text_DE_SOURCE.md')
 LANGS = ['de', 'fr', 'it', 'en', 'ru']
 VISIBLE = ['de', 'fr', 'it', 'en']            # RU versteckt
 DEFLANG = 'de'
+OWN = ['pmt']  # имена самого лендинга: их комментарий называть вправе
+
+# Общий гейт «внутренние заметки не уезжают клиенту» — GoToMarket/_shared/landing_guard.py.
+# Копии нет: модуль ищется вверх по дереву. Нет модуля = сборка падает, а не выкладывается без гейта.
+def _load_guard():
+    import importlib.util
+    d = os.path.dirname(os.path.abspath(__file__))
+    while True:
+        p = os.path.join(d, "_shared", "landing_guard.py")
+        if os.path.isfile(p):
+            spec = importlib.util.spec_from_file_location("landing_guard", p)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            return mod
+        parent = os.path.dirname(d)
+        if parent == d:
+            raise SystemExit("!! не найден _shared/landing_guard.py — сборка без гейта запрещена")
+        d = parent
+
+
+guard = _load_guard()
 
 MULTILANG = os.path.exists(TRANS)
 
@@ -163,14 +184,23 @@ if MULTILANG:
 
 for lang in langs:
     d = os.path.join(ROOT, lang); os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(built[lang])
+    page = guard.strip_internal_comments(built[lang])   # заметки остаются в index.src.html
+    if lang in VISIBLE:                                 # /ru/ — скрытая версия, кириллица там штатна
+        guard.assert_no_internal_notes(page, lang)
+        guard.assert_no_foreign_partner(page, lang, own=OWN)
+    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
 
 redirect = ('<!doctype html><html lang="de"><head><meta charset="utf-8">'
   '<meta name="robots" content="noindex,nofollow">'
   f'<link rel="canonical" href="{DEFLANG}/"><meta http-equiv="refresh" content="0; url={DEFLANG}/">'
   f'<script>location.replace("{DEFLANG}/"+location.hash)</script>'
   '<title>P&M CFO Treuhand AG</title></head>'
+  '<style>@media(max-width:900px){section,header,footer,main{overflow-x:clip}}'
+  '@media(max-width:560px){*{min-width:0}body{overflow-wrap:break-word;hyphens:auto}'
+  'h1,h2{hyphens:manual}.g2{grid-template-columns:minmax(0,1fr)!important}.wrap{flex-wrap:wrap}'
+  'header .wrap{height:auto!important;min-height:0}nav,.menu{flex-wrap:wrap}}</style>'
   f'<body style="font-family:sans-serif;padding:2rem">Weiter zu <a href="{DEFLANG}/">P&M CFO Treuhand</a>…</body></html>')
+redirect = guard.guard(redirect, 'index.html (Root-Redirect)', own=OWN)
 open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(redirect)
 
 print(f'✓ Build: {" ".join(langs)}/ + Root-Redirect → /{DEFLANG}/' + ('' if MULTILANG else '  (DE-only: Übersetzungsdatei fehlt)'))
